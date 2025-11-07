@@ -29,6 +29,39 @@ icons:
   mv tmp/ios/* packages/app/src-tauri/gen/apple/Assets.xcassets/AppIcon.appiconset
   rm -rf tmp
 
+# setup android with all prerequisites check
+android-setup:
+  #!/usr/bin/env bash
+  if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
+    powershell -ExecutionPolicy Bypass -File scripts/setup-android.ps1
+  else
+    bash scripts/setup-android.sh
+  fi
+
+# init the android app
+android-init:
+  cargo tauri android init
+
+# start the android app on a physical device
+android:
+  cargo tauri android dev
+
+# start the android app on a virtual device (emulator)
+android-emulator:
+  cargo tauri android dev --emulator
+
+# make an android build (debug APK)
+android-build:
+  cargo tauri android build --apk
+
+# make an android release build (signed APK)
+android-build-release:
+  cargo tauri android build --apk --release
+
+# make an android AAB bundle for Play Store
+android-build-aab:
+  cargo tauri android build --aab --release
+
 # optimize homepage screenshots for the website hero
 optimize-homepage-images:
   bunx sharp-cli -i screenshots/app-light.png -o website/static/images/kittynode-app-light-960.webp resize 960 --withoutEnlargement -f webp -q 80

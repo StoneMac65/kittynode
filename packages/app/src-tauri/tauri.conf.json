@@ -33,7 +33,10 @@
       "icons/icon.ico"
     ],
     "createUpdaterArtifacts": true,
-    "category": "Utility"
+    "category": "Utility",
+    "android": {
+      "minSdkVersion": 24
+    }
   },
   "plugins": {
     "updater": {

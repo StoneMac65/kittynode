@@ -40,3 +40,8 @@ screenshots
 
 # Work / task files
 work.md
+
+# Android signing
+*.keystore
+*.jks
+key.properties
