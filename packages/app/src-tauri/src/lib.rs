@@ -364,8 +364,9 @@ pub fn run() -> Result<()> {
 
     builder
         .setup(|app| {
+            #[cfg(desktop)]
             if let Some(window) = app.get_webview_window("main") {
-                window.set_focus().ok();
+                window.as_ref().set_focus().ok();
             }
             Ok(())
         })

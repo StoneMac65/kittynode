@@ -1,0 +1,9 @@
+{
+  "$schema": "../gen/schemas/mobile-schema.json",
+  "identifier": "mobile-capability",
+  "description": "Capability for the mobile app",
+  "platforms": ["android", "iOS"],
+  "windows": ["main"],
+  "permissions": ["core:default", "core:window:allow-show", "os:default", "process:default", "shell:allow-open"]
+}
+

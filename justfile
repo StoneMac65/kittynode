@@ -44,6 +44,26 @@ optimize-homepage-images:
 install-dev-tools:
   cargo install cargo-edit cargo-llvm-cov cargo-nextest just tauri-cli
 
+# start the android app on a physical device
+android:
+  cargo tauri android dev
+
+# build android apk (ARM64 only)
+android-build:
+  bun -F app build
+  cargo tauri android build --target aarch64
+
+# init the android app
+android-init:
+  cargo tauri android init
+  mkdir -p packages/app/src-tauri/gen/apple/Assets.xcassets/AppIcon.appiconset
+  cp -R packages/app/src-tauri/gen-overrides/gen/* packages/app/src-tauri/gen 2>/dev/null || true
+  just icons
+
+# start the android app on a virtual device
+android-virtual:
+  cargo tauri android dev --emulator
+
 # start the ios app on a physical device
 ios:
   cargo tauri ios dev --force-ip-prompt -vvv
@@ -107,6 +127,10 @@ release-cli:
   git commit -m "Release kittynode-cli-${verCli}"
   git tag "kittynode-cli-${verCli}" -m "Release kittynode-cli-${verCli}"
   git push origin HEAD "kittynode-cli-${verCli}"
+
+# set up the project with android support
+setup-android:
+  bun install && just install-dev-tools && just android-init
 
 # set up the project
 setup:
