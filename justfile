@@ -50,10 +50,6 @@ android:
 
 # build android apk (ARM64 only)
 android-build:
-  bun -F app build
-  mkdir -p packages/app/src-tauri/gen/android/app/src/main/assets
-  rm -rf packages/app/src-tauri/gen/android/app/src/main/assets/*
-  cp -r packages/app/build/* packages/app/src-tauri/gen/android/app/src/main/assets/
   cargo tauri android build --target aarch64
 
 # sign android apk
