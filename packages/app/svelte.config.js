@@ -10,6 +10,10 @@ const config = {
       fallback: "index.html",
     }),
     appDir: "app",
+    paths: {
+      base: "",
+      relative: true,
+    },
   },
 };
 
