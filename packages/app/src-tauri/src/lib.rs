@@ -368,24 +368,6 @@ pub fn run() -> Result<()> {
             if let Some(window) = app.get_webview_window("main") {
                 window.as_ref().set_focus().ok();
             }
-
-            #[cfg(mobile)]
-            if let Some(window) = app.get_webview_window("main") {
-                window.with_webview(|webview| {
-                    #[cfg(target_os = "android")]
-                    {
-                        use jni::objects::JValue;
-                        let env = webview.jni_env().unwrap();
-                        let webview_obj = webview.android_webview();
-                        env.call_method(
-                            webview_obj,
-                            "setWebContentsDebuggingEnabled",
-                            "(Z)V",
-                            &[JValue::Bool(1)],
-                        ).unwrap();
-                    }
-                }).ok();
-            }
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
