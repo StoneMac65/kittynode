@@ -56,6 +56,16 @@ android-build:
   cp -r packages/app/build/* packages/app/src-tauri/gen/android/app/src/main/assets/
   cargo tauri android build --target aarch64
 
+# sign android apk
+android-sign keystore_path key_alias:
+  #!/bin/bash
+  APK_DIR="packages/app/src-tauri/gen/android/app/build/outputs/apk/universal/release"
+  UNSIGNED_APK="$APK_DIR/app-universal-release-unsigned.apk"
+  SIGNED_APK="$APK_DIR/app-signed.apk"
+  cd "$APK_DIR"
+  apksigner sign --ks {{keystore_path}} --ks-key-alias {{key_alias}} --out app-signed.apk app-universal-release-unsigned.apk
+  echo "Signed APK: $SIGNED_APK"
+
 # init the android app
 android-init:
   cargo tauri android init
