@@ -8,15 +8,8 @@ const config = {
   kit: {
     adapter: adapter({
       fallback: "index.html",
-      assets: true,
-      pages: true,
-      precompress: false,
     }),
     appDir: "app",
-    paths: {
-      base: "",
-      assets: "",
-    },
   },
 };
 
