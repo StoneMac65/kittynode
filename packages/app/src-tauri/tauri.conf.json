@@ -6,7 +6,8 @@
     "beforeDevCommand": "bun -F app dev",
     "devUrl": "http://localhost:1420",
     "beforeBuildCommand": "bun -F app build",
-    "frontendDist": "../build"
+    "frontendDist": "../build",
+    "runner": null
   },
   "app": {
     "windows": [
