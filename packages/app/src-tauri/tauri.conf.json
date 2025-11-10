@@ -5,7 +5,7 @@
   "build": {
     "beforeDevCommand": "bun -F app dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "bun -F app build && node packages/app/fix-mobile-paths.js && mkdir -p gen/android/app/src/main/assets && rm -rf gen/android/app/src/main/assets/* && cp -r ../build/* gen/android/app/src/main/assets/",
+    "beforeBuildCommand": "bun -F app build && node packages/app/fix-mobile-paths.js && mkdir -p packages/app/src-tauri/gen/android/app/src/main/assets && rm -rf packages/app/src-tauri/gen/android/app/src/main/assets/* && cp -r packages/app/build/* packages/app/src-tauri/gen/android/app/src/main/assets/",
     "frontendDist": "../build"
   },
   "app": {
