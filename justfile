@@ -51,6 +51,7 @@ android:
 # build android apk (ARM64 only)
 android-build:
   bun -F app build
+  node packages/app/fix-mobile-paths.js
   cargo tauri android build --target aarch64
 
 # sign android apk

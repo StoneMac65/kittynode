@@ -1,0 +1,13 @@
+import { readFileSync, writeFileSync } from 'fs';
+
+const indexPath = 'build/index.html';
+let html = readFileSync(indexPath, 'utf-8');
+
+// Replace absolute paths with relative paths
+html = html.replace(/href="\/app\//g, 'href="./app/');
+html = html.replace(/import\("\/app\//g, 'import("./app/');
+html = html.replace(/href="\/favicon\.ico"/g, 'href="./favicon.ico"');
+
+writeFileSync(indexPath, html);
+console.log('Fixed mobile paths in index.html');
+
