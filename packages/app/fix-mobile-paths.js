@@ -1,6 +1,9 @@
 import { readFileSync, writeFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const indexPath = 'build/index.html';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const indexPath = join(__dirname, 'build/index.html');
 let html = readFileSync(indexPath, 'utf-8');
 
 // Replace absolute paths with relative paths
