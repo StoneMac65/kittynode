@@ -51,7 +51,7 @@ android:
 # build android apk (ARM64 only)
 android-build:
   bun -F app build
-  cargo build --release --target aarch64-linux-android --manifest-path packages/app/src-tauri/Cargo.toml
+  cargo tauri android build --target aarch64
   rm -rf packages/app/src-tauri/gen/android/app/src/main/assets/*
   cp -r packages/app/build/* packages/app/src-tauri/gen/android/app/src/main/assets/
   cd packages/app/src-tauri/gen/android && ./gradlew assembleUniversalRelease
