@@ -54,7 +54,7 @@ android-build:
   cargo tauri android build --target aarch64
   rm -rf packages/app/src-tauri/gen/android/app/src/main/assets/*
   cp -r packages/app/build/* packages/app/src-tauri/gen/android/app/src/main/assets/
-  cd packages/app/src-tauri/gen/android && ./gradlew assembleUniversalRelease
+  cd packages/app/src-tauri/gen/android && ./gradlew assembleUniversalRelease -x rustBuildArm64Release
 
 # sign android apk
 android-sign keystore_path key_alias:
