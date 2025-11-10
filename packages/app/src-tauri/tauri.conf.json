@@ -5,7 +5,7 @@
   "build": {
     "beforeDevCommand": "bun -F app dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "bun -F app build && node packages/app/fix-mobile-paths.js",
+    "beforeBuildCommand": "bun -F app build && node packages/app/fix-mobile-paths.js && mkdir -p gen/android/app/src/main/assets && rm -rf gen/android/app/src/main/assets/* && cp -r ../build/* gen/android/app/src/main/assets/",
     "frontendDist": "../build"
   },
   "app": {
