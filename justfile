@@ -71,7 +71,7 @@ android-init:
 
 # start the android app on a virtual device
 android-virtual:
-  cargo tauri android dev -- --emulator
+  cargo tauri android dev -- --emulator --no-window --no-audio
 
 # start the ios app on a physical device
 ios:
