@@ -26,6 +26,7 @@
         "scope": ["**"]
       }
     },
+    "url": "index.html",
     "withGlobalTauri": true
   },
   "bundle": {
