@@ -13,6 +13,7 @@
       {
         "label": "main",
         "title": "Kittynode",
+        "url": "index.html",
         "visible": true,
         "height": 900,
         "width": 1200,
@@ -26,7 +27,6 @@
         "scope": ["**"]
       }
     },
-    "url": "index.html",
     "withGlobalTauri": true
   },
   "bundle": {
