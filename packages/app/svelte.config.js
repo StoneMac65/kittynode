@@ -12,7 +12,6 @@ const config = {
     appDir: "app",
     paths: {
       relative: true,
-      assets: "./",
     },
   },
 };
